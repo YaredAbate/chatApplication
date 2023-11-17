@@ -69,8 +69,17 @@ public class ChatApplication {
             }
         } catch (IOException e) {
             System.out.println("Error reading chat from file: " + fileName);
+          //if not present, throw custom exception
+            try{
+                throw new FileNotFoundCustomeException("Please check File Name or path", e);
+            }catch(Exception fileE){
+                //getting message and stack Trace for exception
+                fileE.getMessage();
+                fileE.printStackTrace();
+            }
+            
         }
-
+        
         return chat;
     }
 
@@ -84,6 +93,14 @@ public class ChatApplication {
             }
         } catch (IOException e) {
             System.out.println("Error reading friends list from file: " + fileName);
+          //if not present, throw custom exception
+            try{
+                throw new FileNotFoundCustomeException("Please check File Name or path", e);
+            }catch(Exception fileE){
+                //getting message and stack Trace for exception
+                fileE.getMessage();
+                fileE.printStackTrace();
+            }
         }
 
         return friendsList;
@@ -115,6 +132,14 @@ public class ChatApplication {
             System.out.println("Message written to chat successfully.");
         } catch (IOException e) {
             System.out.println("Error writing to chat file: " + fileName);
+          //if not present, throw custom exception
+            try{
+                throw new FileNotFoundCustomeException("Please check File Name or path", e);
+            }catch(Exception fileE){
+                //getting message and stack Trace for exception
+                fileE.getMessage();
+                fileE.printStackTrace();
+            }
         }
     }
     private void addFriend(Scanner scanner) {
@@ -127,6 +152,14 @@ public class ChatApplication {
             System.out.println("Friend added successfully.");
         } catch (IOException e) {
             System.out.println("Error adding friend to the friends list.");
+          //if not present, throw custom exception
+            try{
+                throw new FileNotFoundCustomeException("Please check File Name or path", e);
+            }catch(Exception fileE){
+                //getting message and stack Trace for exception
+                fileE.getMessage();
+                fileE.printStackTrace();
+            }
         }
     }
 }
